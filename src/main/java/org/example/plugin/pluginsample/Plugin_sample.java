@@ -14,7 +14,6 @@ import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
@@ -92,16 +91,5 @@ public final class Plugin_sample extends JavaPlugin implements Listener {
       }
     }
     player.getInventory().setContents(itemStacks);
-  }
-
-  @EventHandler
-  public void BedEnterEvent(PlayerBedEnterEvent e) {
-    Player player = e.getPlayer();
-    ItemStack[] itemStacks = player.getInventory().getContents();
-    for (ItemStack item : itemStacks) {
-      if (!Objects.isNull(item) && item.getAmount() < 64 && item.getMaxStackSize() == 64) {
-        item.setAmount(0);
-      }
-    }
   }
 }
