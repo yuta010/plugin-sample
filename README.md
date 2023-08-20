@@ -2,7 +2,7 @@
 Mincraftのplugin機能
 
 # Overview
-Java言語でMinecraftのplugin機能を実装。
+Java言語でMinecraftのplugin機能を実装
 
 # Description
 下記のような機能を実装しています。</br>
