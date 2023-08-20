@@ -1,4 +1,4 @@
 name: plugin-sample
 version: '${version}'
-main: org.example.plugin.plugin_sample.Plugin_sample
+main: org.example.plugin.pluginsample.Plugin_sample
 api-version: '1.20'

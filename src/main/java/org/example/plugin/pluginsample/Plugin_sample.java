@@ -1,7 +1,6 @@
 package org.example.plugin.pluginsample;
 
 import java.io.IOException;
-import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -25,7 +24,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Plugin_sample extends JavaPlugin implements Listener {
 
-  private Integer count = 1;
+  private int count = 0;
 
   @Override
   public void onEnable() {
@@ -43,11 +42,10 @@ public final class Plugin_sample extends JavaPlugin implements Listener {
     // イベント発生時のプレイヤーやワールドなどの情報を変数に持つ。
     Player player = e.getPlayer();
     World world = player.getWorld();
-    BigInteger val = new BigInteger(count.toString());
 
     List<Color> colorList = List.of(Color.RED, Color.OLIVE, Color.BLACK, Color.ORANGE, Color.LIME, Color.PURPLE);
 
-    if (val.isProbablePrime(1)) {
+    if (count % 2 == 1) {
       for (Color color : colorList) {
         // 花火オブジェクトをプレイヤーのロケーション地点に対して出現させる。
         Firework firework = world.spawn(player.getLocation(), Firework.class);
@@ -82,6 +80,7 @@ public final class Plugin_sample extends JavaPlugin implements Listener {
     player.setAllowFlight(true);
     player.setFlySpeed(1);
   }
+
 
   @EventHandler
   public void onPlayerMoveEvent(PlayerMoveEvent e) {
