@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.inventory.ItemStack;
@@ -91,5 +92,10 @@ public final class Plugin_sample extends JavaPlugin implements Listener {
       }
     }
     player.getInventory().setContents(itemStacks);
+  }
+  @EventHandler
+  public void onJoinEvent(PlayerJoinEvent e) {
+    Player player = e.getPlayer();
+    player.sendMessage("お久しぶり");
   }
 }
