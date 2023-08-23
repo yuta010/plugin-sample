@@ -28,8 +28,10 @@ public final class Plugin_sample extends JavaPlugin implements Listener {
 
   @Override
   public void onEnable() {
+    saveDefaultConfig();
     Bukkit.getPluginManager().registerEvents(this, this);
-    getCommand("setLevel").setExecutor(new SetLevelCommand());
+    getCommand("setLevel").setExecutor(new SetLevelCommand(this));
+    getCommand("allSetLevel").setExecutor(new AllSetLevelCommand());
   }
 
   /**
