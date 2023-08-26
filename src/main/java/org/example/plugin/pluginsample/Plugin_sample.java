@@ -12,13 +12,11 @@ import org.bukkit.FireworkEffect.Type;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Wolf;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerBedLeaveEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -103,7 +101,7 @@ public final class Plugin_sample extends JavaPlugin implements Listener {
   }
 
   @EventHandler
-  public void JoinBlockSet(PlayerJoinEvent e) {
+  public void onPlayerJoinBlockSet(PlayerJoinEvent e) {
     Player player = e.getPlayer();
     World world = player.getWorld();
     Location playerlocation = player.getLocation();
@@ -114,19 +112,11 @@ public final class Plugin_sample extends JavaPlugin implements Listener {
   }
 
   @EventHandler
-  public void onJoinEvent(PlayerJoinEvent e) {
+  public void onPlayerJoinWolfSet(PlayerJoinEvent e) {
     Player player = e.getPlayer();
     World world = player.getWorld();
     Location playerLocation = player.getLocation();
 
     world.spawn(new Location(world, playerLocation.getX() + 3, playerLocation.getY(), playerLocation.getZ()), Wolf.class);
-  }
-
-  @EventHandler
-  public void onPlayerBedLeaveEvent(PlayerBedLeaveEvent e){
-    Player player = e.getPlayer();
-    World world = player.getWorld();
-
-    world.spawnEntity(player.getLocation(), EntityType.COW);
   }
 }
